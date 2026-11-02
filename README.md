@@ -1,6 +1,6 @@
 # Agent Columns for Herdr
 
-A board layout for [Herdr](https://herdr.dev): agents as cards in status columns, spaces with nested tabs, a live terminal workspace under the board, search, archive and sub-agent groups. See [RECIPE.md](RECIPE.md) for what it does and how it's built. `preview.png` is an illustration, not a screenshot.
+A board layout for [Herdr](https://herdr.dev): agents as cards in status columns, spaces with nested tabs, a live terminal workspace under the board, search, archive and sub-agent groups. See [RECIPE.md](RECIPE.md) for what it does and how it's built. `preview.png` is a real screenshot of the layout, with demo agents.
 
 ## Install
 
