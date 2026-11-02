@@ -1,2 +1,11 @@
-# herdr-agent-columns
-Herdr layout: agents as cards in status columns, spaces with nested tabs, live terminal workspace, search, archive and sub-agent groups
+# Agent Columns for Herdr
+
+A board layout for [Herdr](https://herdr.dev): agents as cards in status columns, spaces with nested tabs, a live terminal workspace under the board, search, archive and sub-agent groups. See [RECIPE.md](RECIPE.md) for what it does and how it's built. `preview.png` is an illustration, not a screenshot.
+
+## Install
+
+Ask your Herdr agent: `Read ~/.config/herdr-app/AGENTS.md, then add this layout: https://github.com/elied-dev/herdr-agent-columns`
+
+By hand: copy `layouts/agent-columns.json` and `layouts/agent-columns.svg` into `~/.config/herdr-app/layouts/` and the three `mods/agent-columns*` folders into `~/.config/herdr-app/mods/`. Then `herdr-app do layout.switch '{"name":"agent-columns"}'`.
+
+No network requests, no programs run, no files read outside the mod folders.
