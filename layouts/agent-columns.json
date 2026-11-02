@@ -2,6 +2,7 @@
   "id": "root",
   "type": "row",
   "titlebar": "none",
+  "colors": { "blocked": "#f97316", "working": "#3b82f6", "done": "#22c55e", "idle": "#22c55e" },
   "theme": {
     "light": "paper",
     "dark": "graphite"

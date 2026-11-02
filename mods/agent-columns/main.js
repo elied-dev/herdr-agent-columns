@@ -11,7 +11,7 @@ const STATES = [
   { key: "blocked", label: "Needs you", get color() { return theme().blocked; } },
   { key: "working", label: "Working", get color() { return theme().working; } },
   { key: "done", also: "idle", label: "Done", get color() { return theme().done; } },
-  { key: "error", label: "Failed", get color() { return theme().ansi1; } },
+  { key: "error", label: "Failed", color: "#ef4444" },
   { key: "archived", label: "Archived", get color() { return theme().dim; } },
 ].map((s) => Object.defineProperty(s, "wash", { get() { return s.color + "26"; } }));
 // Herdr reports a failed agent as "blocked"; hc knows the real "error" state.
