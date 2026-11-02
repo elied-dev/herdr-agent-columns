@@ -32,7 +32,7 @@ The look follows the person's theme: `paper` when light, `graphite` when dark. N
 | tab settled | Archived | theme `dim`; the column exists only while toggled on |
 
 - **Failed**: Herdr reports a failed agent as `blocked`; the mod reads the real `error` state from `terminals()` (`status` or `report.state`) and moves the card to Failed.
-- **Archive**: the archive icon on a card runs `tab.settle` on the agent's tab; archived cards show "Restore" (`tab.unsettle`). The toggle sits inside the board, in the header of its last column: "Archived (N)" or "Hide archived". The Archived column is a normal equal-width column.
+- **Archive**: the archive icon on a card runs `terminal.park` (closes the agent's pane, the agent keeps running) and `tab.settle` on its tab; archived cards show "Restore" (`tab.unsettle`). The toggle sits inside the board, in the header of its last column: "Archived (N)" or "Hide archived". The Archived column is a normal equal-width column.
 - **Click a card**: `agent.focus`, which selects its space and tab. In Board view this also switches to Split.
 - **View toggle**: Board hides the workspace and lets the board fill the window; Terminal hides the board; Split shows both (board 355px). The state lives in the layout (`hidden`, size) so it survives restarts.
 - **Search**: filters cards by tab name, terminal title, address, program name or space name, case-insensitive. Counts follow. The text is shared state and is not saved.

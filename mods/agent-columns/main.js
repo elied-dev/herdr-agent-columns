@@ -83,7 +83,7 @@ export default class Board extends View {
                 .on_click((_e, cx) => { cx.stop_propagation(); run("tab.unsettle", { id: a.tab }); })
             : div().id(`archive-${a.address}`).flex_none().size(20).flex().items_center().justify_center().rounded(4).text_color(C.muted).cursor_pointer()
                 .hover((s) => s.bg(theme().hover).text_color(C.ink)).child(svg("mods/workspace-chrome/archive.svg").size(13))
-                .on_click((_e, cx) => { cx.stop_propagation(); run("tab.settle", { id: a.tab }); }))
+                .on_click((_e, cx) => { cx.stop_propagation(); run("terminal.park", { terminal: a.address }); run("tab.settle", { id: a.tab }); }))
           .child(div().id(`rename-${a.address}`).flex_none().px(4).text_size(12).text_color(C.muted).cursor_pointer()
             .hover((s) => s.text_color(C.ink)).child("✎")
             .on_click((_e, cx) => { cx.stop_propagation(); run("tab.rename", { id: a.tab }); })))
