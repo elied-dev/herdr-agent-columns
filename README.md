@@ -9,3 +9,7 @@ Ask your Herdr agent: `Read ~/.config/herdr-app/AGENTS.md, then add this layout:
 By hand: copy `layouts/agent-columns.json` and `layouts/agent-columns.svg` into `~/.config/herdr-app/layouts/` and the three `mods/agent-columns*` folders into `~/.config/herdr-app/mods/`. Then `herdr-app do layout.switch '{"name":"agent-columns"}'`.
 
 No network requests, no programs run, no files read outside the mod folders.
+
+## License
+
+Apache-2.0, see [LICENSE](LICENSE). `mods/agent-columns-chrome` is based on Herdr App's `workspace-chrome` mod (Apache-2.0) and has been modified: its sidebar-fold button is removed.

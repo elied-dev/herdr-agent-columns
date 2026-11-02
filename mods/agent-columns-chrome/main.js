@@ -1,3 +1,4 @@
+// Modified from Herdr App's `workspace-chrome` (Apache-2.0): the sidebar-fold button is removed.
 import { View, div, image, svg } from "gpui-kit";
 import { h_flex, v_flex } from "gpui-base";
 import { theme, run, props, window, shared, setShared, updates, layout } from "herdr";
