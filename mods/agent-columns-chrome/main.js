@@ -38,9 +38,15 @@ export default class WorkspaceChrome extends View {
         .text_color(dim ? t.dim : t.muted).hover(s => s.bg(t.hover).text_color(t.foreground)).cursor_pointer()
         .on_click(action).child(svg(`mods/agent-columns-chrome/${icon}.svg`).size(14))
         .when(!collapsed, el => el.child(label));
+      // Usage sits next to Settings, as in T3 Code's sidebar footer.
+      const usage = div().id("usage").size(28).flex_none().flex().items_center().justify_center().rounded(8).cursor_pointer()
+        .text_color(t.muted).hover(s => s.bg(t.hover).text_color(t.foreground)).tooltip("Usage")
+        .on_click(() => run("mod.open", { name: "agent-columns-usage" })).child(svg("mods/agent-columns-usage/chart.svg").size(14));
       return v_flex().size_full().bg(t.chrome).border_t(1).border_color(t.border).px(8).pt(4).pb(8).text_size(13)
-        .child(row("settings", "settings", "Settings", false, () => run("app.settings"))
-          .when(Boolean(updates().app.ready), el => el.child(div().size(6).rounded_full().bg(t.accent))))
+        .child(h_flex().gap(2).items_center()
+          .child(row("settings", "settings", "Settings", false, () => run("app.settings")).flex_1()
+            .when(Boolean(updates().app.ready), el => el.child(div().size(6).rounded_full().bg(t.accent))))
+          .when(!collapsed, el => el.child(usage)))
         .child(row("machine", "plus", "Add machine", true, () => run("mod.open", { name: "machine-add" })));
     }
     return h_flex().size_full().bg(t.chrome).pl(collapsed ? 6 : 14).pr(10).gap(4).items_center().text_size(13.5)

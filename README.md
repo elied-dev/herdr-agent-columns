@@ -6,9 +6,9 @@ A board layout for [Herdr](https://herdr.dev): agents as cards in status columns
 
 Ask your Herdr agent: `Read ~/.config/herdr-app/AGENTS.md, then add this layout: https://github.com/elied-dev/herdr-agent-columns`
 
-By hand: copy `layouts/agent-columns.json` and `layouts/agent-columns.svg` into `~/.config/herdr-app/layouts/` and the three `mods/agent-columns*` folders into `~/.config/herdr-app/mods/`. Then `herdr-app do layout.switch '{"name":"agent-columns"}'`.
+By hand: copy `layouts/agent-columns.json` and `layouts/agent-columns.svg` into `~/.config/herdr-app/layouts/` and the four `mods/agent-columns*` folders into `~/.config/herdr-app/mods/`. Then `herdr-app do layout.switch '{"name":"agent-columns"}'`.
 
-No network requests, no programs run, no files read outside the mod folders.
+The Usage dialog (chart icon next to Settings) runs `mods/agent-columns-usage/usage.py` with `python3`: it reads local agent transcripts (`~/.pi/agent/sessions`, `~/.claude/projects`, `~/.codex/sessions`), reads Claude/Codex/Copilot logins (macOS keychain `Claude Code-credentials`, `~/.codex/auth.json`, `~/.pi/agent/auth.json`) and calls their usage endpoints with `curl`. The rest of the layout makes no network requests and runs no programs.
 
 ## License
 

@@ -12,7 +12,7 @@ Left to right: a **sidebar** (268px, `chrome` color, resizable 44-480px) and the
 1. Brand bar, 46px: Herdr logo, "Herdr", and a search button (opens the `picker`). Leaves room for the macOS window buttons.
 2. **Spaces**: a "Spaces" header with a `+` (new space). Each space is a row: a rounded 18px colored letter avatar, its name, a pen (rename) and a `+` (new tab). Its tabs are listed under it, indented 24px, each with a status dot (theme `blocked` / `working` / `done`, `dim` when none) and a pen. The active space and tab have the `selected` background.
 3. **Agents**: the shipped `agents` list.
-4. Footer, 69px: the shipped Settings and Add machine buttons.
+4. Footer, 69px: Settings with a **Usage** chart icon to its right (opens the Usage dialog), then Add machine.
 
 **Work area**, top to bottom:
 1. **Header**, 48px, `surface` color: a panel icon (hide/show the whole sidebar), three toggle chips **Board / Split / Terminal** (the current one is highlighted in the accent color), a centered 320px **search box** ("Search agents…", with a ✕ while it has text), and a green dot with "Live updates" at the right.
@@ -48,8 +48,9 @@ The look follows the person's theme: `paper` when light, `graphite` when dark. N
 - **`mods/agent-columns`**, one mod selected by `props().role`: `header`, `terminals` (workspace rail), `pane` (pane header), none (the board). Uses `agents()`, `terminals()`, `spaces()`, `panes()`, `layout()`, `theme()`, `shared()` / `setShared()`, `setAgentOrder()`, and `run` for `agent.focus`, `tab.rename`, `tab.settle`, `tab.unsettle`, `layout.show`, `layout.hide`, `layout.resize`, `layout.toggle`. The search box is an `InputState` created in `init` (it can't be created while rendering). `mod.json`: `{"place": "none"}`.
 - **`mods/agent-columns-spaces`**: spaces with nested tabs. Uses `spaces()`, `shared("space.colors")` for the avatar colors, `openOverlay({mod: "menu", kind: "popup", props: {tab: "space" | "tab", target}})` for right-click, and `run` for `space.select`, `space.new`, `space.rename`, `tab.select`, `tab.new`, `tab.rename`. `mod.json`: `{"place": "none", "title": "Spaces"}`.
 - **`mods/agent-columns-chrome`**: a clone of the shipped `workspace-chrome` (0.1.11) with its sidebar-fold button removed, so the sidebar can only be hidden whole. Keeps `search.svg`, `settings.svg`, `plus.svg`.
+- **`mods/agent-columns-usage`**: the Usage dialog, modeled on T3 Code's Usage page (`mod.json` overlay: dialog 760×680). Header with period chips (Past 24h / 7 / 30 / 90 days), refresh and close. **Limits**: one card per signed-in subscription (Claude `api/oauth/usage`, Codex `backend-api/wham/usage`, GitHub Copilot `copilot_internal/user`), a bar per window filled with what's left, a tick where even spending would be, `N% left · on/ahead of/under pace · resets in 3h 12m`; unlimited quotas show credits used. **Totals** (processed, cached, uncached, output tokens, reported cost), **Daily tokens** stacked by agent, **Breakdown** by agent then model. All data comes from one `exec("python3", [usage.py, days])`.
 - **Shipped mods it relies on**: `agents` (sidebar list), `workspace-chrome` (footer, and the `archive.svg`, `panel-left.svg` and `search.svg` icons the mods load by path), `menu` (right-click), `picker` (search button).
-- No network, no programs, no files outside its own folder.
+- Only the Usage dialog reaches the network or runs programs (`python3`, `curl`, `security`).
 
 ## Watch out
 

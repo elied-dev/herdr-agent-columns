@@ -77,7 +77,7 @@
             "px": 69
           },
           "content": {
-            "mod": "workspace-chrome",
+            "mod": "agent-columns-chrome",
             "props": {
               "footer": true
             }
